@@ -1,0 +1,97 @@
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+th,
+td {
+  padding: 12px;
+  border-bottom: 1px solid #dddddd;
+  text-align: left;
+}
+
+th {
+  background: #f5f5f5;
+}
+
+.acoes {
+  display: flex;
+  gap: 8px;
+}
+
+.editar {
+  background: #f0ad4e;
+}
+
+.remover {
+  background: #d9534f;
+  color: white;
+}
+
+.salvar {
+  background: #5cb85c;
+  color: white;
+}
+
+.cancelar {
+  background: #777777;
+  color: white;
+}
+
+.mensagem {
+  padding: 12px;
+  background: #f1f1f1;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.resultado-busca {
+  margin-top: 16px;
+  padding: 12px;
+  background: #f8f8f8;
+  border-radius: 6px;
+}

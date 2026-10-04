@@ -1,0 +1,136 @@
+<div class="container">
+
+  <h1>Gerenciamento de Produtos</h1>
+
+  <p *ngIf="mensagem" class="mensagem">
+    {{ mensagem }}
+  </p>
+
+  <!-- BUSCAR POR ID -->
+  <section class="card">
+    <h2>Buscar produto por ID</h2>
+
+    <div class="form-row">
+      <input
+        type="number"
+        [(ngModel)]="idBusca"
+        placeholder="Digite o ID"
+      />
+
+      <button (click)="buscarPorId()">
+        Buscar
+      </button>
+    </div>
+
+    <div *ngIf="produtoBuscado" class="resultado-busca">
+      <p><strong>ID:</strong> {{ produtoBuscado.id }}</p>
+      <p><strong>Nome:</strong> {{ produtoBuscado.nome }}</p>
+      <p><strong>Preço:</strong> R$ {{ produtoBuscado.preco | number:'1.2-2' }}</p>
+    </div>
+  </section>
+
+  <!-- ADICIONAR PRODUTO -->
+  <section class="card">
+    <h2>Novo produto</h2>
+
+    <div class="form-row">
+      <input
+        type="text"
+        [(ngModel)]="novoNome"
+        placeholder="Nome do produto"
+      />
+
+      <input
+        type="number"
+        [(ngModel)]="novoPreco"
+        placeholder="Preço"
+        step="0.01"
+      />
+
+      <button (click)="adicionarProduto()">
+        Adicionar
+      </button>
+    </div>
+  </section>
+
+  <!-- LISTAGEM -->
+  <section class="card">
+    <h2>Produtos cadastrados</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Preço</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let produto of produtos">
+
+          <!-- MODO NORMAL -->
+          <ng-container *ngIf="produtoEditandoId !== produto.id">
+            <td>{{ produto.id }}</td>
+            <td>{{ produto.nome }}</td>
+            <td>R$ {{ produto.preco | number:'1.2-2' }}</td>
+            <td class="acoes">
+              <button
+                class="editar"
+                (click)="iniciarEdicao(produto)">
+                Editar
+              </button>
+
+              <button
+                class="remover"
+                (click)="removerProduto(produto.id)">
+                Remover
+              </button>
+            </td>
+          </ng-container>
+
+          <!-- MODO EDIÇÃO -->
+          <ng-container *ngIf="produtoEditandoId === produto.id">
+            <td>{{ produto.id }}</td>
+
+            <td>
+              <input
+                type="text"
+                [(ngModel)]="nomeEdicao"
+              />
+            </td>
+
+            <td>
+              <input
+                type="number"
+                [(ngModel)]="precoEdicao"
+                step="0.01"
+              />
+            </td>
+
+            <td class="acoes">
+              <button
+                class="salvar"
+                (click)="salvarEdicao(produto.id)">
+                Salvar
+              </button>
+
+              <button
+                class="cancelar"
+                (click)="cancelarEdicao()">
+                Cancelar
+              </button>
+            </td>
+          </ng-container>
+
+        </tr>
+      </tbody>
+    </table>
+
+    <p *ngIf="produtos.length === 0">
+      Nenhum produto cadastrado.
+    </p>
+  </section>
+
+</div>
