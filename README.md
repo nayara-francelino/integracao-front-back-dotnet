@@ -1,6 +1,4 @@
-from pathlib import Path
-
-content = """# Integração Front-End com Back-End .NET
+# Integração Front-End com Back-End .NET
 
 Projeto desenvolvido como atividade prática do Bootcamp de Desenvolvimento Back-End .NET.
 
@@ -196,8 +194,3 @@ https://github.com/nayara-francelino/produtos-front
 ## Autora
 
 Nayara Francelino
-"""
-
-path = Path("/mnt/data/README.md")
-path.write_text(content, encoding="utf-8")
-print(path)
